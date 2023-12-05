@@ -12,7 +12,7 @@ export default {
 
     methods: {
         getFilms() {
-            axios.get(options.url).then(risultato => {
+            axios.get(this.options.url).then(risultato => {
                 this.options.Info = risultato.data;
             }
             )
