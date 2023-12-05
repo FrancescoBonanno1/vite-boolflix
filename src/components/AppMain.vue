@@ -1,26 +1,47 @@
 <script>
-import axios from 'axios';
-import { market } from './market';
+import { options } from './market'
 export default {
     data() {
         return {
-            market
+            options
         }
     },
+    mounted() {
+
+    },
+
     methods: {
         getFilms() {
-            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=947f61cd40d96768ce0ed9f6d316bd3f&query=Deadpool`).then(res => {
-                console.log(res.results.original_language)
-                this.market.movieInfo = res.results
-                console.log(this.market.movieInfo)
-            });
+            axios.get(options.url).then(risultato => {
+                this.options.Info = risultato.data;
+            }
+            )
         }
     }
 }
+
 </script>
 
 <template>
-    <h1>prova</h1>
+    <section id="wrapper">
+        <div class="cardcontainer">
+            <img src="" alt="img">
+            <h2></h2>
+            <p></p>
+        </div>
+    </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+#wrapper {
+    width: 100%;
+    background-color: rgb(63, 63, 63);
+    height: 100vh;
+}
+
+.cardcontainer {
+    background-color: rgb(206, 41, 41);
+    width: 30%;
+    height: 30%;
+}
+</style>

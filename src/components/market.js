@@ -2,25 +2,27 @@ import axios from 'axios';
 
 export const options = {
     method: 'GET',
-    url: 'https://api.themoviedb.org/3/search/movie',
+    url: 'https://api.themoviedb.org/3/search/movie?api_key=c9783224abe7e0c6744c19a5889bd43a&query=kill%20bill',
     params: {
-        query: 'Deadpool',
+        query: 'kill%20bill',
         include_adult: 'true',
         language: 'en-US',
-        primary_release_year: '2018',
-        page: '1'
+        primary_release_year: '2007',
+        page: '1',
+        region: 'USA',
+        year: '2015'
     },
     headers: {
         accept: 'application/json',
-        Authorization: '947f61cd40d96768ce0ed9f6d316bd3f'
-    }
+        Authorization: 'Bearer c9783224abe7e0c6744c19a5889bd43a'
+    },
+    Info: []
 };
-
 
 axios
     .request(options)
     .then(function (response) {
-        console.log(response.results);
+        console.log(response.data);
     })
     .catch(function (error) {
         console.error(error);
