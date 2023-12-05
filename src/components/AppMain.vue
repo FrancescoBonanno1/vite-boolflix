@@ -1,24 +1,18 @@
 <script>
 import axios from 'axios';
-import { store } from './store';
-import AppSearch from './AppSearch.vue';
-
+import { market } from './market';
 export default {
-    components: {
-        AppSearch
-    },
     data() {
         return {
-            store
+            market
         }
-
     },
     methods: {
         getFilms() {
-            axios.get(`${this.store.apiUrl}`).then(results => {
-                console.log(results.data.results, "ecco i risultati della chiamata")
-                this.store.movieInfo = results.data
-                console.log(this.store.movieInfo, "ecco le cards dei film cercati")
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=947f61cd40d96768ce0ed9f6d316bd3f&query=Deadpool`).then(res => {
+                console.log(res.results.original_language)
+                this.market.movieInfo = res.results
+                console.log(this.market.movieInfo)
             });
         }
     }
@@ -27,7 +21,6 @@ export default {
 
 <template>
     <h1>prova</h1>
-    <AppSearch @search="{ getFilms }" />
 </template>
 
 <style scoped></style>
