@@ -48,9 +48,45 @@ export default {
 			<p v-else>
 				{{ card.original_language }}
 			</p>
-
-
 			<span>{{ card.vote_average }}</span>
+		</div>
+
+
+		<div v-for="serialny in store.contenitoreSerie" class="cardcontainer">
+			<img src="" alt="img">
+			<h2>{{ serialny.name }}</h2>
+			<h2>{{ serialny.original_name }}</h2>
+			<p v-if="serialny.original_language === 'en'">
+				<img src="../assets/img/gb.png" alt="">
+			</p>
+			<p v-else-if="serialny.original_language === 'ja'">
+				<img src="../assets/img/jp.png" alt="">
+			</p>
+			<p v-else-if="serialny.original_language === 'de'">
+				<img src="../assets/img/de.png" alt="">
+			</p>
+			<p v-else-if="serialny.original_language === 'it'">
+				<img src="../assets/img/it.png" alt="">
+			</p>
+			<p v-else-if="serialny.original_language === 'ko'">
+				<img src="../assets/img/kr.png" alt="">
+			</p>
+			<p v-else-if="serialny.original_language === 'fr'">
+				<img src="../assets/img/fr.png" alt="">
+			</p>
+			<p v-else-if="serialny.original_language === 'no'">
+				<img src="../assets/img/no.png" alt="">
+			</p>
+			<p v-else-if="serialny.original_language === 'pt'">
+				<img src="../assets/img/pt.png" alt="">
+			</p>
+			<p v-else-if="serialny.original_language === 'cn'">
+				<img src="../assets/img/cn.png" alt="">
+			</p>
+			<p v-else>
+				{{ serialny.original_language }}
+			</p>
+			<span>{{ serialny.vote_average }}</span>
 		</div>
 	</section>
 </template>

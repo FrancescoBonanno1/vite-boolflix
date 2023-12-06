@@ -51,9 +51,9 @@ export default {
 			const series = `${store.api_Series}?api_key=${store.api_key}&query=${store.ricerca}`;
 
 			axios.get(series).then(res => {
-				this.store.contenitore = res.data.results
-				console.log(this.store.contenitore)
-				console.log(res.data.results, "dati ricevuti");
+				this.store.contenitoreSerie = res.data.results
+
+				console.log(res.data.results, "dati ricevuti per le serie");
 
 
 
@@ -65,7 +65,7 @@ export default {
 
 
 <template>
-	<AppHeader @search="getInfo + getInfoSeries" />
+	<AppHeader @search="getInfo(); getInfoSeries()" />
 	<AppMain />
 </template>
 
