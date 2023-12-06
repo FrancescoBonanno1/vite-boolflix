@@ -1,47 +1,37 @@
 <script>
-import { options } from './market'
+import { store } from '../store.js'
 export default {
-    data() {
-        return {
-            options
-        }
-    },
-    mounted() {
-
-    },
-
-    methods: {
-        getFilms() {
-            axios.get(this.options.url).then(risultato => {
-                this.options.Info = risultato.data;
-            }
-            )
-        }
-    }
+	name: "AppMain",
+	data() {
+		return {
+			store
+		}
+	},
 }
+
 
 </script>
 
 <template>
-    <section id="wrapper">
-        <div class="cardcontainer">
-            <img src="" alt="img">
-            <h2></h2>
-            <p></p>
-        </div>
-    </section>
+	<section id="wrapper">
+		<div v-for="card in store.contenitore" class="cardcontainer">
+			<img src="" alt="img">
+			<h2>{{ card.original_title }}</h2>
+			<p></p>
+		</div>
+	</section>
 </template>
 
 <style scoped>
 #wrapper {
-    width: 100%;
-    background-color: rgb(63, 63, 63);
-    height: 100vh;
+	width: 100%;
+	background-color: rgb(63, 63, 63);
+	height: 100vh;
 }
 
 .cardcontainer {
-    background-color: rgb(206, 41, 41);
-    width: 30%;
-    height: 30%;
+	background-color: rgb(206, 41, 41);
+	width: 30%;
+	height: 30%;
 }
 </style>
